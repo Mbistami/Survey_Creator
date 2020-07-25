@@ -1,0 +1,42 @@
+#form-signin {
+    height: max-content;
+    box-shadow: 0 0 50px rgb(0, 0, 0, 0.15);
+    margin-top: 15%;
+    background-color: white;
+}
+
+.checkbox.mb-3 {
+    margin-top: 10px;
+}
+
+#inputPassword {
+    margin-top: 5px;
+}
+
+body {
+    background-image: url("../html/bgbanner.jpg");
+}
+
+#createAccount {
+    text-decoration: underline;
+    opacity: 0.5;
+}
+
+#createAccount:hover {
+    text-decoration: underline;
+    color: rgb(143, 143, 255);
+    opacity: 1;
+    cursor: pointer;
+}
+
+#createAcc {
+    display: none;
+}
+
+#createAcc input {
+    margin-top: 5px;
+}
+#createAcc button {
+    margin-top: 50px;
+}
+
