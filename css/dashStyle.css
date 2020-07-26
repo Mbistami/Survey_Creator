@@ -1,0 +1,11 @@
+#navbar { 
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+}
+
+a {
+    padding: 10px 10px;
+}
+
+#alerter {
+    margin-top: 20px;
+}
