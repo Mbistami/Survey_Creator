@@ -26,7 +26,7 @@ function register() {
         }
     })
 }
-
+var HelloUser = new String();
 function login() {
     var json = {
         email: $('#inputEmail').val(),
@@ -38,10 +38,13 @@ function login() {
         contentType: 'application/json',
         data: JSON.stringify(json),
         success: function (data) {  
-            if(data === 'User Not found')
-                $('#signin').append('<p id="notfound" style="color: red;">USER NOT FOUND</p>')
+            if(data.msg === 'Success')
+            {
+                localStorage.setItem('data', JSON.stringify(data))
+                window.open("../html/dashboard.html","_self")
+            }
             else
-            window.open('http://yoururl.com', '_blank');
+                $('#signin').append('<p id="notfound" style="color: red;">USER NOT FOUND</p>')
         }
     })
     setTimeout(function(){
