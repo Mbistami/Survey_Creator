@@ -5,3 +5,12 @@ $(document).ready(function(){
         $('#alerter').fadeOut('fast')
     }, 1000)
 })
+
+function changeActive(value) {
+    $('#navbarNav ul li').find('a.nav-link.active').attr('class','nav-link')
+    $('#'+value).attr('class', 'nav-link active')
+}
+
+$('#notifList').click(function(){
+    $('#notifRedDot').show()
+})
