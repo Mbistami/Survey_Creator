@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    
+    alert(data.name)
     var data =  JSON.parse(localStorage.getItem('data'))
     $('#alerter').text(`Hello ${data.name} ${data.lname} ,Welcome Back !`)
     setTimeout(function(){

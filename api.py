@@ -1,5 +1,5 @@
 import flask
-from flask import request, jsonify, request, session, make_response, render_template
+from flask import request, jsonify, request, session, make_response, render_template, redirect, url_for
 from flask_cors import CORS, cross_origin
 import jwt
 from flask_mysqldb import MySQL
@@ -26,25 +26,30 @@ def check_for_token(func):
     def wrapped(*args, **kwargs):
         token = request.args.get('token')
         if not token:
-            return jsonify({'message': 'MISSING TOKEN'}), 403
+            return render_template('main.html')
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'])
         except:
-            return jsonify({'message':'Invalid token'}), 403
+            return render_template('main.html')
         return func(*args, **kwargs)
     return wrapped
 
 @app.route('/dashboard')
 @check_for_token
 def dashboard():
-    return 'Only if has jwt'
+    return render_template('dashboard.html')
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if not session.get('logged_in'):
         return render_template('main.html')
     else:
-        return 'Curently logged in'
+        return redirect(url_for('dashboard'))
+
+@app.route('/logout')
+def logout():
+        session['logged_in'] = False
+        return redirect(url_for('index'))
 
 @app.route('/register', methods=['POST'])
 @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
@@ -69,7 +74,7 @@ def login():
         session['logged_in'] = True
         token = jwt.encode({
             'user': data[0][0],
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=120)
         }, app.config['SECRET_KEY'])
         #cur = mysql.connection.cursor()
         #update_token = "update users set token='{}' where email='{}'".format(token.decode('utf-8'), data[0][0])
@@ -86,6 +91,7 @@ def login():
             )
     else:
         return make_response('Unable to verify', 403)
+
 
 
 app.run(host=('192.168.1.4'))

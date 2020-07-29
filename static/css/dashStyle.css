@@ -21,6 +21,15 @@ a {
     box-shadow: 0 0 3px rgb(0, 0, 0, 0.15);
 }
 
+#accoutList {
+    margin-top: 100px;
+    position: absolute;
+    float: left;
+    margin-left: -20px;
+    height: 50px;
+    width: 10px;
+}
+
 #notifList:hover {
     margin-left: 2px;
 }
