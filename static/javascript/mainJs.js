@@ -41,7 +41,7 @@ function login() {
             if(data.msg === 'Success')
             {
                 localStorage.setItem('data', JSON.stringify(data))
-                window.open("../html/dashboard.html","_self")
+                window.open("static/html/dashboard.html","_self")
             }
             else
                 $('#signin').append('<p id="notfound" style="color: red;">USER NOT FOUND</p>')

@@ -14,3 +14,7 @@ function changeActive(value) {
 $('#notifList').click(function(){
     $('#notifRedDot').show()
 })
+
+function showit(){
+    $('#notifRedDot').show()
+}

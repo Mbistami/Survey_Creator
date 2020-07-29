@@ -42,7 +42,7 @@ def dashboard():
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if not session.get('logged_in'):
-        return render_template('login.html')
+        return render_template('main.html')
     else:
         return 'Curently logged in'
 
@@ -69,8 +69,13 @@ def login():
         session['logged_in'] = True
         token = jwt.encode({
             'user': data[0][0],
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
         }, app.config['SECRET_KEY'])
+        #cur = mysql.connection.cursor()
+        #update_token = "update users set token='{}' where email='{}'".format(token.decode('utf-8'), data[0][0])
+        #cur.execute(update_token)
+        #mysql.connection.commit()
+        #cur.close()
         return jsonify(
             msg= 'Success',
             email= data[0][0],
