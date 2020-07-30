@@ -7,18 +7,21 @@ a {
 }
 
 #alerter {
-    margin-top: 20px;
+    top: 80px;
     right: 0;
-    position: absolute;
+    position: fixed;
+    margin-left: 50px;
 }
+
 
 #notifList {
     height: 50px;
     width: 50px;
-    margin-top: 40px;
+    top: 80px;
     background-color: #f8f8f8;
     border-radius: 0px 5px 5px 0px;
     box-shadow: 0 0 3px rgb(0, 0, 0, 0.15);
+    position: fixed;
 }
 
 #accoutList {
@@ -57,3 +60,34 @@ a {
     margin-left: 60%;
     display: none;
 }
+
+#logoutPnl {
+    height: 50px;
+    width: 50px;
+    background-color: #f8f8f8;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 0 0 3px rgb(0, 0, 0, 0.15);
+    position: fixed;
+    bottom: 10px;
+}
+
+#logoutIcon {
+    height: 50px;
+    width: 50px;
+    font-size: 45px;
+    margin-left: 3px;
+    margin-top: 3px;
+    cursor: pointer;
+    color: #999999;
+    opacity: 0.6;
+    position: absolute;
+}
+
+#mainCont{
+    vertical-align: middle;
+}
+
+#tester {
+    margin-top: 500%;
+}
+

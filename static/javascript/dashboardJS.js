@@ -20,3 +20,7 @@ $('#notifList').click(function(){
 function showit(){
     $('#notifRedDot').show()
 }
+
+function logout() {
+    window.open("http://192.168.1.6:5000/logout","_self")
+}

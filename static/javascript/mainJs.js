@@ -18,7 +18,7 @@ function register() {
     }
     $.ajax({
         type:"POST",
-        url: "http://192.168.1.4:5000/register",
+        url: "http://192.168.1.6:5000/register",
         contentType: 'application/json',
         data: JSON.stringify(json),
         success: function () { 
@@ -34,14 +34,14 @@ function login() {
     }
     $.ajax({
         type:"POST",
-        url:"http://192.168.1.4:5000/login",
+        url:"http://192.168.1.6:5000/login",
         contentType: 'application/json',
         data: JSON.stringify(json),
         success: function (data) {  
             if(data.msg === 'Success')
             {
                 localStorage.setItem('data', JSON.stringify(data))
-                window.open("http://192.168.1.4:5000/dashboard?token="+data.token,"_self")
+                window.open("http://192.168.1.6:5000/dashboard?token="+data.token,"_self")
             }
             else
                 $('#signin').append('<p id="notfound" style="color: red;">USER NOT FOUND</p>')
